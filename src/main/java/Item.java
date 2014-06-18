@@ -1,18 +1,15 @@
 public class Item {
 
     private final String code;
-    private final Double price;
+    private final int price;
 
-    public Item(String code, Double price) {
+    public Item(String code, int price) {
         this.code = code;
         this.price = price;
     }
 
-    public String getCode() {
-        return code;
-    }
+    public void updatePrice(TotalPriceCalculator dataHolder) {
+        dataHolder.sumPrice(price);
 
-    public Double getPrice() {
-        return price;
     }
 }

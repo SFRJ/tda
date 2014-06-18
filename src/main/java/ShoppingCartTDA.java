@@ -1,14 +1,13 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class ShoppingCartTDA {
 
     private final List<Item> items;
-    private CalculationDataHolder dataHolder;
+    private TotalPriceCalculator calculator;
 
-    public ShoppingCartTDA(CalculationDataHolder dataHolder) {
-        this.dataHolder = dataHolder;
+    public ShoppingCartTDA(TotalPriceCalculator calculator) {
+        this.calculator = calculator;
         items = new ArrayList<Item>();
     }
 
@@ -17,17 +16,10 @@ public class ShoppingCartTDA {
         items.add(item);
     }
 
-    public List<Item> getAllItems() {
-        return Collections.unmodifiableList(items);
-    }
-
-    //The behavoir was pushed|brought into the method
-    //Still should have an argument with some kind of repo where to add the dataHolder
     public void calculateTotalCost(){
-        double total = 0.0;
         for (Item item : items) {
-            total += item.getPrice();
+            item.updatePrice(calculator);
         }
-        dataHolder.update(total);
+        calculator.done();
     }
 }
