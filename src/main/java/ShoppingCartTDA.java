@@ -4,22 +4,21 @@ import java.util.List;
 public class ShoppingCartTDA {
 
     private final List<Item> items;
-    private TotalPriceCalculator calculator;
+    private DataParcel dataParcel;
 
-    public ShoppingCartTDA(TotalPriceCalculator calculator) {
-        this.calculator = calculator;
+    public ShoppingCartTDA(DataParcel dataParcel) {
+        this.dataParcel = dataParcel;
         items = new ArrayList<Item>();
     }
 
     public void addItem(Item item) {
-
         items.add(item);
     }
 
     public void calculateTotalCost(){
         for (Item item : items) {
-            item.updatePrice(calculator);
+            item.updatePrice(dataParcel);
         }
-        calculator.done();
+        dataParcel.deliver();
     }
 }

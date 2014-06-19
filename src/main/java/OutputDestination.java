@@ -1,3 +1,3 @@
-public interface Customer {
+public interface OutputDestination {
     public void showTotalPrice(int result);
 }

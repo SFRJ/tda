@@ -8,8 +8,8 @@ public class ShoppingCartTest {
 
     @Test
     public void calculateTotalCostTDAWay() {
-        Customer presenter = mock(Customer.class);
-        TotalPriceCalculator dataHolder = new TotalPriceCalculator(presenter);
+        OutputDestination presenter = mock(OutputDestination.class);
+        DataParcel dataHolder = new DataParcel(presenter);
         ShoppingCartTDA instance = new ShoppingCartTDA(dataHolder);
 
         Item a = new Item("gloves", 23);

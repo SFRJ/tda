@@ -8,8 +8,8 @@ public class Item {
         this.price = price;
     }
 
-    public void updatePrice(TotalPriceCalculator dataHolder) {
-        dataHolder.sumPrice(price);
+    public void updatePrice(DataParcel dataHolder) {
+        dataHolder.updateData(price);
 
     }
 }
